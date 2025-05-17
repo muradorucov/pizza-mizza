@@ -489,7 +489,9 @@ const data = [
 const pizzasElem = document.querySelector("#pizzas")
 const searchElem = document.querySelector("#search")
 const paginationsElem = document.querySelector("#paginations");
-const totalData = document.querySelector("#totalData")
+const totalData = document.querySelector("#totalData");
+const cardModal = document.querySelector("#card-modal");
+const showCard = document.querySelector("#show-card");
 let start = 0;
 let end = 12;
 let globalList;
@@ -509,6 +511,14 @@ searchElem.addEventListener("keyup", (event) => {
     }
     if (searchElem.value === "") {
         domRender(data)
+    }
+})
+showCard.addEventListener("click", () => {
+    cardModal.classList.remove("hidden")
+})
+cardModal.addEventListener("click", (e) => {
+    if (e.target === cardModal) {
+        cardModal.classList.add("hidden")
     }
 })
 
